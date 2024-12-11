@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DSTSITBemutatobeadando")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72e35ea540509a8069a77268f082bca2e3d56d6d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0a7d0761e0ebdec690678b5fc6d0504762cf4b3d")]
 [assembly: System.Reflection.AssemblyProductAttribute("DSTSITBemutatobeadando")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DSTSITBemutatobeadando")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

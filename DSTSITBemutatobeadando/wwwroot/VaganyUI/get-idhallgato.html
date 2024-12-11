@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID alapján hallgató kilistázás</title>
+    <link rel="stylesheet" href="css/getstyle2.css">
+</head>
+<body>
+
+    <h1>ID alapján hallgató kilistázás</h1>
+
+    <nav>
+        <ul>
+            <li><a href="getminden.html">Minden hallgató</a></li>
+            <li><a href="add-hallgato.html">Új hallgató hozzáadása</a></li>
+            <li><a href="update-hallgato.html">Hallgató módosítása</a></li>
+            <li><a href="delete-hallgato.html">Hallgató törlése</a></li>
+            <li><a href="get-idhallgato.html">ID alapján hallgató kilistázás</a></li>
+        </ul>
+    </nav>
+
+    <label for="hallgatoId" class="label-text">Adja meg a hallgató ID-ját:</label>
+
+    <div class="input-container">
+        <input type="text" id="hallgatoId" placeholder="Adjon meg egy ID-t" required>
+        <button id="fetchHallgato">Hallgató adatainak lekérése</button>
+    </div>
+
+    <div id="hallgatoDetails">
+        <h2>Tulajdonságok:</h2>
+        <p><strong>Név:</strong> <span id="name">N/A</span></p>
+        <p><strong>Átlag:</strong> <span id="average">N/A</span></p>
+        <p><strong>Képzés:</strong> <span id="program">N/A</span></p>
+        <p><strong>Anyja neve:</strong> <span id="motherName">N/A</span></p>
+    </div>
+
+    <script>
+        const apiUrl = '/api/hallgatok';
+
+        document.getElementById('fetchHallgato').addEventListener('click', async () => {
+            const hallgatoId = document.getElementById('hallgatoId').value;
+
+            if (!hallgatoId) {
+                alert('Kell Hallgato ID');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${apiUrl}/${hallgatoId}`);
+                const hallgato = await response.json();
+
+                if (response.ok) {
+                    document.getElementById('name').textContent = hallgato['Név'] || 'N/A';
+                    document.getElementById('average').textContent = hallgato['Átlag'] || 'N/A';
+                    document.getElementById('program').textContent = hallgato['Képzés'] || 'N/A';
+                    document.getElementById('motherName').textContent = hallgato['Anyja neve'] || 'N/A';
+                } else {
+                    alert('Nincs ilyen Hallgató');
+                    document.getElementById('name').textContent = 'N/A';
+                    document.getElementById('average').textContent = 'N/A';
+                    document.getElementById('program').textContent = 'N/A';
+                    document.getElementById('motherName').textContent = 'N/A';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Valami hiba történt.');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -31,10 +31,23 @@ namespace DSTSITBemutatobeadando.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(Hallgato newHallgato)
         {
-            await _hallgatokService.CreateAsync(newHallgato);
+            if (newHallgato == null)
+            {
+                return BadRequest("Invalid data.");
+            }
 
-            return CreatedAtAction(nameof(Get), new { id = newHallgato.Id }, newHallgato);
+            try
+            {
+                await _hallgatokService.CreateAsync(newHallgato);
+                return CreatedAtAction(nameof(Get), new { id = newHallgato.Id }, newHallgato);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error while creating Hallgato: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
         }
+
 
         [HttpPut("{id:length(24)}")]
         public async Task<IActionResult> Update(string id, Hallgato updatedHallgato)

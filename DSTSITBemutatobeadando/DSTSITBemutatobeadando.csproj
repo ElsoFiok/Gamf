@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\VaganyUI\NewFolder\**" />
+    <Content Remove="wwwroot\VaganyUI\NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\VaganyUI\NewFolder\**" />
+    <None Remove="wwwroot\VaganyUI\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.0" />
     <PackageReference Include="MongoDB.Driver" Version="3.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />

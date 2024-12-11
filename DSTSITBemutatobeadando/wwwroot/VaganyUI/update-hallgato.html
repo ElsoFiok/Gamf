@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hallgató Módosítása</title>
+    <link rel="stylesheet" href="css/updatestyle.css">
+</head>
+<body>
+
+    <h1>Hallgató Módosítása</h1>
+
+    <nav>
+        <ul>
+            <li><a href="getminden.html">Minden hallgató</a></li>
+            <li><a href="add-hallgato.html">Új hallgató hozzáadása</a></li>
+            <li><a href="update-hallgato.html">Hallgató módosítása</a></li>
+            <li><a href="delete-hallgato.html">Hallgató törlése</a></li>
+            <li><a href="get-idhallgato.html">ID alapján hallgató kilistázás</a></li>
+        </ul>
+    </nav>
+
+    <div id="hallgato-id-container">
+        <label for="hallgatoId" class="label-text">Adja meg a Hallgató ID-t:</label>
+        <input type="text" id="hallgatoId" placeholder="ID megadása" required>
+        <button id="fetchHallgato">Megjelenítés</button>
+    </div>
+
+    <form id="updateForm">
+        <h2>Hallgató jelenlegi adatai:</h2>
+        <label for="name" class="label-text">Név:</label>
+        <input type="text" id="name" required>
+        <br>
+
+        <label for="average" class="label-text">Átlag:</label>
+        <input type="number" id="average" step="0.01" required>
+        <br>
+
+        <label for="program" class="label-text">Képzés:</label>
+        <input type="text" id="program" required>
+        <br>
+
+        <label for="motherName" class="label-text">Anyja neve:</label>
+        <input type="text" id="motherName" required>
+        <br>
+
+        <button type="submit">Módosítás</button>
+    </form>
+
+    <script>
+        const apiUrl = '/api/hallgatok';
+
+        document.getElementById('fetchHallgato').addEventListener('click', async () => {
+            const hallgatoId = document.getElementById('hallgatoId').value;
+
+            if (!hallgatoId) {
+                alert('Kérjük, adja meg a Hallgató ID-t');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${apiUrl}/${hallgatoId}`);
+                const hallgato = await response.json();
+
+                if (response.ok) {
+                    document.getElementById('name').value = hallgato['Név'] || '';
+                    document.getElementById('average').value = hallgato['Átlag'] || '';
+                    document.getElementById('program').value = hallgato['Képzés'] || '';
+                    document.getElementById('motherName').value = hallgato['Anyja neve'] || '';
+                } else {
+                    alert('A hallgató nem található');
+                }
+            } catch (error) {
+                console.error('Hiba:', error);
+                alert('Hiba történt a hallgató adatainak lekérésekor.');
+            }
+        });
+
+        document.getElementById('updateForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const hallgatoId = document.getElementById('hallgatoId').value;
+            if (!hallgatoId) {
+                alert('Kérjük, adja meg a Hallgató ID-t');
+                return;
+            }
+
+            const updatedHallgato = {
+                "Id": hallgatoId,
+                "Név": document.getElementById('name').value,
+                "Átlag": parseFloat(document.getElementById('average').value),
+                "Képzés": document.getElementById('program').value,
+                "Anyja neve": document.getElementById('motherName').value
+            };
+
+            try {
+                const response = await fetch(`${apiUrl}/${hallgatoId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(updatedHallgato)
+                });
+
+                if (response.ok) {
+                    alert('Hallgató sikeresen módosítva!');
+                } else {
+                    const errorData = await response.json();
+                    alert('A hallgató módosítása nem sikerült: ' + (errorData.message || 'Ismeretlen hiba'));
+                }
+            } catch (error) {
+                console.error('Hiba:', error);
+                alert('Hiba történt a hallgató módosítása során.');
+            }
+        });
+    </script>
+
+</body>
+</html>

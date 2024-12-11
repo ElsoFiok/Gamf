@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Új hallgató hozzáadása</title>
+    <link rel="stylesheet" href="css/addstyle.css">
+</head>
+<body>
+
+    <h1>Új Hallgató Hozzáadása</h1>
+
+    <nav>
+        <ul>
+            <li><a href="getminden.html">Minden hallgató</a></li>
+            <li><a href="add-hallgato.html">Új hallgató hozzáadása</a></li>
+            <li><a href="update-hallgato.html">Hallgató módosítása</a></li>
+            <li><a href="delete-hallgato.html">Hallgató törlése</a></li>
+            <li><a href="get-idhallgato.html">ID alapján hallgató kilistázás</a></li>
+        </ul>
+    </nav>
+
+    <form id="addHallgatoForm">
+        <label for="name" class="label-text">Név:</label><br>
+        <input type="text" id="name" required><br><br>
+
+        <label for="average" class="label-text">Átlag:</label><br>
+        <input type="number" id="average" step="0.01" required><br><br>
+
+        <label for="program" class="label-text">Képzés:</label><br>
+        <input type="text" id="program" required><br><br>
+
+        <label for="motherName" class="label-text">Anyja neve:</label><br>
+        <input type="text" id="motherName" required><br><br>
+
+        <button type="submit">Hallgató Hozzáadása</button>
+    </form>
+
+    <script>
+        const apiUrl = '/api/hallgatok';
+
+        document.getElementById('addHallgatoForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const hallgato = {
+                "Név": document.getElementById('name').value,
+                "Átlag": parseFloat(document.getElementById('average').value),
+                "Képzés": document.getElementById('program').value,
+                "Anyja neve": document.getElementById('motherName').value
+            };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(hallgato),
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error('Backend Error:', errorData);
+                    alert('Error: ' + (errorData.message || 'Failed to add Hallgato'));
+                } else {
+                    const result = await response.json();
+                    alert('Hallgató sikeresen hozzáadva! ');
+                }
+            } catch (error) {
+                console.error('Fetch Error:', error);
+                alert('Error: ' + error.message);
+            }
+        });
+    </script>
+
+</body>
+</html>

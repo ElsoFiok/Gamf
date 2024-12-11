@@ -1,0 +1,65 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\DSTSITBemutatobeadando\\DSTSITBemutatobeadando\\wwwroot\\VaganyUI\\add-hallgato.html",
+      "PackagePath": "staticwebassets\\VaganyUI\\add-hallgato.html"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\DSTSITBemutatobeadando\\DSTSITBemutatobeadando\\wwwroot\\VaganyUI\\css\\addstyle.css",
+      "PackagePath": "staticwebassets\\VaganyUI\\css\\addstyle.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\DSTSITBemutatobeadando\\DSTSITBemutatobeadando\\wwwroot\\VaganyUI\\css\\deletestyle.css",
+      "PackagePath": "staticwebassets\\VaganyUI\\css\\deletestyle.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\DSTSITBemutatobeadando\\DSTSITBemutatobeadando\\wwwroot\\VaganyUI\\css\\getstyle.css",
+      "PackagePath": "staticwebassets\\VaganyUI\\css\\getstyle.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\DSTSITBemutatobeadando\\DSTSITBemutatobeadando\\wwwroot\\VaganyUI\\css\\indexstyle.css",
+      "PackagePath": "staticwebassets\\VaganyUI\\css\\indexstyle.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\DSTSITBemutatobeadando\\DSTSITBemutatobeadando\\wwwroot\\VaganyUI\\css\\updatestyle.css",
+      "PackagePath": "staticwebassets\\VaganyUI\\css\\updatestyle.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\DSTSITBemutatobeadando\\DSTSITBemutatobeadando\\wwwroot\\VaganyUI\\delete-hallgato.html",
+      "PackagePath": "staticwebassets\\VaganyUI\\delete-hallgato.html"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\DSTSITBemutatobeadando\\DSTSITBemutatobeadando\\wwwroot\\VaganyUI\\get-idhallgato.html",
+      "PackagePath": "staticwebassets\\VaganyUI\\get-idhallgato.html"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\DSTSITBemutatobeadando\\DSTSITBemutatobeadando\\wwwroot\\VaganyUI\\getminden.html",
+      "PackagePath": "staticwebassets\\VaganyUI\\getminden.html"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\DSTSITBemutatobeadando\\DSTSITBemutatobeadando\\wwwroot\\VaganyUI\\index.html",
+      "PackagePath": "staticwebassets\\VaganyUI\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\DSTSITBemutatobeadando\\DSTSITBemutatobeadando\\wwwroot\\VaganyUI\\update-hallgato.html",
+      "PackagePath": "staticwebassets\\VaganyUI\\update-hallgato.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.DSTSITBemutatobeadando.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.DSTSITBemutatobeadando.props",
+      "PackagePath": "build\\DSTSITBemutatobeadando.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.DSTSITBemutatobeadando.props",
+      "PackagePath": "buildMultiTargeting\\DSTSITBemutatobeadando.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.DSTSITBemutatobeadando.props",
+      "PackagePath": "buildTransitive\\DSTSITBemutatobeadando.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

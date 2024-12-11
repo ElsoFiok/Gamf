@@ -49,3 +49,4 @@ C:\Users\User\source\repos\DSTSITBemutatobeadando\DSTSITBemutatobeadando\obj\Deb
 C:\Users\User\source\repos\DSTSITBemutatobeadando\DSTSITBemutatobeadando\obj\Debug\net8.0\DSTSITBemutatobeadando.pdb
 C:\Users\User\source\repos\DSTSITBemutatobeadando\DSTSITBemutatobeadando\obj\Debug\net8.0\DSTSITBemutatobeadando.genruntimeconfig.cache
 C:\Users\User\source\repos\DSTSITBemutatobeadando\DSTSITBemutatobeadando\obj\Debug\net8.0\ref\DSTSITBemutatobeadando.dll
+C:\Users\User\source\repos\DSTSITBemutatobeadando\DSTSITBemutatobeadando\bin\Debug\net8.0\DSTSITBemutatobeadando.staticwebassets.runtime.json

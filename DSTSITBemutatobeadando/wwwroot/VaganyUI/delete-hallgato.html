@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hallgató törlése</title>
+    <link rel="stylesheet" href="css/deletestyle.css">
+</head>
+<body>
+
+    <h1>Hallgató Törlése</h1>
+    <nav>
+        <ul>
+            <li><a href="getminden.html">Minden hallgató</a></li>
+            <li><a href="add-hallgato.html">Új hallgató hozzáadása</a></li>
+            <li><a href="update-hallgato.html">Hallgató módosítása</a></li>
+            <li><a href="delete-hallgato.html">Hallgató törlése</a></li>
+            <li><a href="get-idhallgato.html">ID alapján hallgató kilistázás</a></li>
+        </ul>
+    </nav>
+
+    <div class="form-container">
+        <label for="deleteId" class="label-text">Hallgató ID:</label><br>
+        <input type="text" id="deleteId" class="input-field" placeholder="Adja meg a hallgató ID-ját" required><br><br>
+
+        <button onclick="deleteHallgato()" class="action-btn">Törlés</button>
+    </div>
+
+    <script>
+        const apiUrl = '/api/hallgatok';
+
+        async function deleteHallgato() {
+            const hallgatoId = document.getElementById('deleteId').value;
+            if (!hallgatoId) {
+                alert('Kérjük, adja meg a hallgató ID-ját.');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${apiUrl}/${hallgatoId}`, {
+                    method: 'DELETE',
+                });
+
+                if (response.ok) {
+                    alert('Hallgató sikeresen törölve.');
+                } else {
+                    const data = await response.json();
+                    alert('Hiba történt: ' + data.message);
+                }
+            } catch (error) {
+                alert('Hiba történt: ' + error.message);
+            }
+        }
+    </script>
+
+</body>
+</html>
